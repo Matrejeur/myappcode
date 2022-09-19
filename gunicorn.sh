@@ -1,4 +1,3 @@
 #!/bin/bash
-
-source env/bin/activate
+source django/bin/activate
 
