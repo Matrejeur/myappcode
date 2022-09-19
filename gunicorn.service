@@ -1,0 +1,18 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=matrejeur
+Group=www-data
+WorkingDirectory=/var/lib/jenkins/workspace/django-cicd
+ExecStart=/var/lib/jenkins/workspace/django-cicd/bin/gunicorn \
+          --error-logfile /var/lib/jenkins/workspace/django-cicd/error.log \
+          --workers 3 \
+          --bind unix:/run/gunicorn.sock \
+          --capture-output --log-level debug \
+          blog.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
