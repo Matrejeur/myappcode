@@ -1,10 +1,10 @@
 #!/bin/bash
 source django/bin/activate
 
-cd /var/lib/jenkins/workspace/django-cicd
+cd /var/lib/jenkins/workspace/django-cicd/blog
 
 python3 manage.py makemigrations
-python manage.py migrate
+python3 manage.py migrate
 
 echo "Migrate Done"
 
